@@ -18,7 +18,7 @@ $result = $stmt->get_result();
 $trainings = [];
 
 while ($row = $result->fetch_assoc()) {
-    $row['image_url'] = "http://192.168.56.1/proyek2_mobile/portoline/uploads/" . $row['image'];
+    $row['image_url'] = "http://192.168.1.4/proyek2_mobile/portoline/uploads/" . $row['image'];
     $trainings[] = $row;
 }
 

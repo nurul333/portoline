@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final password = passwordController.text.trim();
 
     final url = Uri.parse(
-      'http://192.168.56.1/proyek2_mobile/portoline/login.php',
+      'http://192.168.1.4/proyek2_mobile/portoline/login.php',
     );
 
     try {

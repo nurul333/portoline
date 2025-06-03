@@ -25,7 +25,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     try {
       final response = await http.post(
         Uri.parse(
-          "http://192.168.56.1/proyek2_mobile/portoline/forgot_password.php",
+          "http://192.168.1.4/proyek2_mobile/portoline/forgot_password.php",
         ),
         body: {'email': email, 'new_password': newPassword},
       );

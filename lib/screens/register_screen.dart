@@ -64,7 +64,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     final password = passwordController.text;
 
     var url = Uri.parse(
-      'http://192.168.56.1/proyek2_mobile/portoline/register.php',
+      'http://192.168.1.4/proyek2_mobile/portoline/register.php',
     ); // Ganti sesuai IP
 
     var response = await http.post(

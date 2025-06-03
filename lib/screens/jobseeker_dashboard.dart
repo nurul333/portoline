@@ -559,7 +559,7 @@ class _ProfilePageState extends State<ProfilePage> {
     setState(() => _isLoading = true);
 
     final url = Uri.parse(
-      'http://192.168.56.1/proyek2_mobile/portoline/get_profile.php?user_id=$userId',
+      'http://192.168.1.4/proyek2_mobile/portoline/get_profile.php?user_id=$userId',
     );
     final response = await http.get(url);
 
@@ -594,7 +594,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Future<void> saveProfile() async {
     final url = Uri.parse(
-      'http://192.168.56.1/proyek2_mobile/portoline/save_profile.php',
+      'http://192.168.1.4/proyek2_mobile/portoline/save_profile.php',
     );
     final response = await http.post(
       url,
