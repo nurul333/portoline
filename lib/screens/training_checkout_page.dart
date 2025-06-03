@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'jobseeker_dashboard.dart'; // pastikan file ini berisi class TrainingItem
 
@@ -29,19 +29,22 @@ class TrainingCheckoutPage extends StatelessWidget {
       final data = json.decode(response.body);
       final snapToken = data['snap_token'];
 
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder:
-              (_) => WebviewScaffold(
-                url:
-                    "https://app.sandbox.midtrans.com/snap/v2/vtweb/$snapToken",
-                appBar: AppBar(title: Text('Pembayaran')),
-                withZoom: true,
-                withLocalStorage: true,
-              ),
-        ),
-      );
+      void launchMidtrans(String snapToken) async {
+        final url = Uri.parse(
+          "https://app.sandbox.midtrans.com/snap/v2/vtweb/$snapToken",
+        );
+
+        if (await canLaunchUrl(url)) {
+          await launchUrl(
+            url,
+            mode:
+                LaunchMode
+                    .externalApplication, // untuk buka di browser atau app lain
+          );
+        } else {
+          throw 'Could not launch $url';
+        }
+      }
     } else {
       ScaffoldMessenger.of(
         context,
